@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --progress --colors --hot --config --history-api-fallback"
   },
   "author": "Bhavesh-Radadiya",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
     "redux": "^3.6.0"
   }
 }

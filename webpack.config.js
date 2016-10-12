@@ -1,6 +1,10 @@
 module.exports = {
   entry: './src',
 
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
+
   output: {
     path : './dist',
     filename: 'js/bundle.min.js'
