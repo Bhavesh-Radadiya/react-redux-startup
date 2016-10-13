@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import allReducers from './js/reducers'
-import Home from './js/components/home';
+import Home from './js/components/home/home';
 import About from './js/components/about';
 import Contactus from './js/components/contactus';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
