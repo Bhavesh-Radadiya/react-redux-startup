@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
   entry: './src',
 
@@ -6,8 +8,9 @@ module.exports = {
   },
 
   output: {
-    path : './dist',
-    filename: 'js/bundle.min.js'
+    path : './dist/assets',
+    publicPath: '/assets/',
+    filename: 'bundle.min.js'
   },
 
   module: {
@@ -20,7 +23,11 @@ module.exports = {
         query: {
            presets: ['es2015', 'react']
         }
-      }
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass'
+      },
     ]
   },
 

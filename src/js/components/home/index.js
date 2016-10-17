@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Home from './home';
-import {getCount} from '../../action/count';
 
 const mapStateProps = (state) => {
 

@@ -3,20 +3,27 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import allReducers from './js/reducers'
+import App from './js/components/app';
 import Home from './js/components/home/home';
 import About from './js/components/about';
+import LoginForm from './js/components/loginForm'
+import configStore from './js/store/configStore';
 import Contactus from './js/components/contactus';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+require('./assets/styles/index.scss');
 
-const store = createStore(allReducers);
+const store = configStore();
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDom.render(
   <Provider store = {store}>
-    <Router history={browserHistory}>
-      <Route path = "/" component = {Home}/>
-      <Route path = "/about" component = {About}/>
-      <Route path = "/contactus" component = {Contactus}/>
+    <Router history={history}>
+      <Route path = "/" component = {App}>
+        <IndexRoute component = {LoginForm} />
+        <Route path="/home" component={Home} />
+      </Route>
+
     </Router>
   </Provider>,
   document.getElementById('root'));
