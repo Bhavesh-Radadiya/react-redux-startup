@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 
 export default class LoginForm extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {email:'', password:'',}
+  }
+
+  componentDidMount(){
+    if(this.props.authData.isLoggedIn){
+        browserHistory.push('/home');
+    }
   }
 
   emailChangeHandler(e) {

@@ -5,7 +5,7 @@ import { loginRequest, loginSuccess, loginError } from '../../actions';
 import { browserHistory } from 'react-router';
 
 const mapStateProps =(state) => {
-  const authData = state;
+  const authData = state.auth.auth;
   return {
     authData
   };
@@ -17,7 +17,13 @@ const mapDispatchToProps = (dispatch) => {
       let req = dispatch(loginRequest(data));
       req.payload.then(response => {
         console.log(response);
-        dispatch(loginSuccess(response));
+        let authData = {
+          userId: response.userId,
+          access_token: response.access_token,
+          userRole: response.userDetails.userRole
+        }
+        localStorage.setItem('authData',JSON.stringify(authData));
+        dispatch(loginSuccess(authData));
         browserHistory.push('/home');
       },err=>{
         dispatch(loginError(JSON.stringify(err)));

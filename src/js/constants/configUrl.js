@@ -1,4 +1,4 @@
-const api = 'http://private-a77b0-snadmin.apiary-mock.com';
-export const userCount = api + '/getUserCount';
+const api = 'https://api-stagging.sellnews.com';
 
-export const login = 'https://api-stagging.sellnews.com/login';
+export const login = api + '/login';
+export const logout = api + '/logout';

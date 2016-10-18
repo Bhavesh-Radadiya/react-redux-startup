@@ -1,5 +1,5 @@
 import * as actionType from '../constants/actionType';
-import postLoginRequest from '../api/loginApi'
+import { postLoginRequest, postLogoutRequest } from '../api/loginApi'
 function loginRequest(data) {
   return {
     type: actionType.LOGIN_REQUEST,
@@ -7,22 +7,46 @@ function loginRequest(data) {
   };
 }
 
-function loginSuccess() {
+function loginSuccess(data) {
   return {
     type: actionType.LOGIN_SUCCESS,
-    payload:''
+    payload: data
   };
 }
 
-function loginError() {
+function loginError(err) {
   return {
     type: actionType.LOGIN_ERROR,
-    payload:''
+    payload: err
+  }
+}
+
+function logoutRequest(data) {
+  return {
+    type: actionType.LOGOUT_REQUEST,
+    payload: postLogoutRequest(data)
+  }
+}
+
+function logoutSuccess(data) {
+  return {
+    type: actionType.LOGOUT_SUCCESS,
+    payload: data
+  }
+}
+
+function logoutError(err) {
+  return {
+    type: actionType.LOGOUT_ERROR,
+    payload: err
   }
 }
 
 export {
   loginRequest,
   loginSuccess,
-  loginError
+  loginError,
+  logoutRequest,
+  logoutSuccess,
+  logoutError
 }

@@ -9,6 +9,7 @@ import About from './js/components/about';
 import LoginForm from './js/components/loginForm'
 import configStore from './js/store/configStore';
 import Contactus from './js/components/contactus';
+import Logout from './js/components/logout'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 require('./assets/styles/index.scss');
@@ -21,7 +22,10 @@ ReactDom.render(
     <Router history={history}>
       <Route path = "/" component = {App}>
         <IndexRoute component = {LoginForm} />
-        <Route path="/home" component={Home} />
+        <Route path="home" component={Home} />
+        <Route path="logout" component={Logout} />
+        <Route path="contactus" component={Contactus} />
+        <Route path="about" component={About} />
       </Route>
 
     </Router>

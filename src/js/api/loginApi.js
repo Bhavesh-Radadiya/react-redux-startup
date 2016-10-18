@@ -14,4 +14,18 @@ const postLoginRequest = (data) => {
   }).then(res=>res.json(),err=>err);
 };
 
-export default postLoginRequest;
+const postLogoutRequest = (access_token) => {
+  return fetch(api.logout,{
+    method: 'post',
+    headers: {
+      'Accept': 'application/json',
+      'Content-type': 'application/json',
+      'access_token': access_token
+    }
+  }).then(res=>res.json(),err=>err);
+}
+
+export {
+  postLoginRequest,
+  postLogoutRequest
+};
