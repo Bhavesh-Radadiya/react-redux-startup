@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import { } from 'react-bootstrap';
 class Home extends Component {
   constructor(props){
     super(props);
@@ -8,7 +8,9 @@ class Home extends Component {
   render() {
     return (
       <div>
-        This is Home page.
+        <div>
+
+        </div>
       </div>
     );
   }

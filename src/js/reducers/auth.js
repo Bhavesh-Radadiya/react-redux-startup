@@ -11,6 +11,8 @@ export default function (state = initialState, action) {
       return {auth:{isLoggedIn:checkLogin(),authData:getAuthData(),isLoading:false}};
     case actionType.LOGIN_ERROR:
       return {auth:{isLoggedIn:checkLogin(),authData:getAuthData(),isLoading:false}};
+    case actionType.LOGOUT_SUCCESS:
+      return {auth:{isLoggedIn:checkLogin(),authData:getAuthData(),isLoading:false}}
   }
   return state;
 }

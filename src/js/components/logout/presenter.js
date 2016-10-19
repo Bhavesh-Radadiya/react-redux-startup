@@ -5,7 +5,7 @@ export default class Logout extends Component {
     super(props);
   }
 
-  componentDidMount(){
+  onLogout() {
     if(this.props.authData.isLoggedIn){
         this.props.logout(this.props.authData.authData.access_token);
     }
@@ -13,9 +13,7 @@ export default class Logout extends Component {
 
   render() {
     return(
-      <div>
-        <span> Loadding.... </span>
-      </div>
+        <span onClick={this.onLogout.bind(this)}> Logout </span>
     );
   }
 }

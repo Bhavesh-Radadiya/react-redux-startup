@@ -11,17 +11,4 @@ const mapStateProps = (state) => {
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    logout: (data) => {
-      let res = dispatch(logoutRequest(data));
-      res.payload.then(response =>{
-        dispatch(logoutSuccess());
-      },err => {
-        dispatch(logoutError());
-      });
-    }
-  }
-}
-
-export default connect(mapStateProps, mapDispatchToProps)(Nav);
+export default connect(mapStateProps)(Nav);
