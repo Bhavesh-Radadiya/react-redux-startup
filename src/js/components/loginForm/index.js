@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import LoginForm from './presenter';
 import { loginRequest, loginSuccess, loginError } from '../../actions';
 import { browserHistory } from 'react-router';
+let storage = require('localStorage');
 
 const mapStateProps =(state) => {
   const authData = state.auth.auth;
@@ -14,7 +15,8 @@ const mapStateProps =(state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     loginRequest: (data) => {
-      let req = dispatch(loginRequest(data));
+
+      let req = dispatch(loginRequest(btoa(data.username + ':' + data.password)));
       req.payload.then(response => {
         console.log(response);
         let authData = {
@@ -22,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
           access_token: response.access_token,
           userRole: response.userDetails.userRole
         }
-        localStorage.setItem('authData',JSON.stringify(authData));
+        storage.setItem('authData',JSON.stringify(authData));
         dispatch(loginSuccess(authData));
         browserHistory.push('/home');
       },err=>{

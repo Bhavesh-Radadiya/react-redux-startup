@@ -10,7 +10,6 @@ export default class LoginForm extends Component {
 
   componentDidMount(){
     if(this.props.authData.isLoggedIn){
-        console.log('sd');
         browserHistory.push('/home');
     }
   }

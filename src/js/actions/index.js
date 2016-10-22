@@ -1,4 +1,5 @@
 import { loginRequest, loginSuccess, loginError, logoutRequest, logoutSuccess, logoutError } from './auth';
+import { fetchNewsstockList, fetchNewsstockSuccess, fetchNewsstockError, increasePageNumber } from './newsstockList';
 
 export {
   loginRequest,
@@ -6,5 +7,9 @@ export {
   loginError,
   logoutRequest,
   logoutSuccess,
-  logoutError
+  logoutError,
+  fetchNewsstockList,
+  fetchNewsstockSuccess,
+  fetchNewsstockError,
+  increasePageNumber
 }

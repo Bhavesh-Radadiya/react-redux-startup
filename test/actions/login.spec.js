@@ -1,14 +1,20 @@
 import test from 'ava';
 import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import * as actionType from '../../src/js/components/actionType';
+import thunkMiddleware from 'redux-thunk';
+import * as actionType from '../../src/js/constants/actionType';
 import nock from 'nock';
+import { loginRequest, loginSuccess } from '../../src/js/actions';
 
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares);
-
-describe('async actions', () => {
-    it('empty',()=>{
-      expect(()).toEqual();
-    })
-})
+test('network call', t => {
+  return new Promise((resolve, reject) => {
+    const middlewares = [thunkMiddleware]
+    const mockStore = configureMockStore([thunkMiddleware]);
+     const store = mockStore({})
+     const req = store.dispatch(loginRequest('sddsd'))
+     req.payload.then(res=>{
+       resolve();
+     },err=>{
+       reject();
+     });
+  });
+});

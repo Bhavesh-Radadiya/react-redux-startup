@@ -4,7 +4,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 
 const App = ({children}) => (
   <StickyContainer>
-    <Sticky>
+    <Sticky className="navbar">
       <AppNav />
     </Sticky>
     <div className="container">

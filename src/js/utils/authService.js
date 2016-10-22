@@ -20,8 +20,19 @@ function checkLogin() {
   }
 }
 
+function requireAuth(nextState, replace) {
+  if(!checkLogin()) {
+    replace({
+      pathname: '/',
+      state: { nextPathname: nextState.location.pathname }
+    });
+  }
+
+}
+
 export {
   getAccessToken,
   getAuthData,
-  checkLogin
+  checkLogin,
+  requireAuth
 }
